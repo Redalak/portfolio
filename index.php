@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio — Reda Lakhledj | BTS SIO SLAM</title>
     <meta name="description" content="Portfolio — Reda Lakhledj, BTS SIO SLAM (2024–2026), alternant chez ParIstanbul. Projets, missions, compétences et contact." />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -24,7 +22,6 @@
         a{color:inherit;text-decoration:none}
         .wrap{width:min(1120px,92vw);margin-inline:auto}
 
-        /* Header centré */
         header{position:sticky;top:0;z-index:40;background:rgba(10,11,15,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line)}
         .nav{display:flex;align-items:center;justify-content:center;padding:.7rem 0}
         .links{display:flex;gap:1rem;flex-wrap:wrap}
@@ -32,7 +29,6 @@
         .links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--pri),var(--acc));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
         .links a:hover{opacity:1}.links a:hover::after{transform:scaleX(1)}
 
-        /* Background FX */
         .fx{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
                 radial-gradient(1200px 600px at 80% -10%, rgba(127,90,240,.22), transparent 60%),
                 radial-gradient(900px 500px at -10% 80%, rgba(234,68,68,.18), transparent 60%),
@@ -45,23 +41,12 @@
             background-size:32px 32px;mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, #000 60%, transparent 100%);animation:floatgrid 22s linear infinite}
         @keyframes floatgrid{from{transform:translateY(0)}to{transform:translateY(-64px)}}
 
-        /* Marquee juste sous la nav */
-        .marquee-wrap{
-            border-top:1px solid var(--line);
-            border-bottom:1px solid var(--line);
-            background:rgba(255,255,255,.02);
-        }
+        .marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
         .marquee{overflow:hidden}
-        .marquee .track{
-            display:flex;gap:1.2rem;padding:.6rem 0;
-            min-width:max-content;
-            animation:defilement 18s linear infinite;
-            will-change:transform;
-        }
+        .marquee .track{display:flex;gap:1.2rem;padding:.6rem 0;min-width:max-content;animation:defilement 18s linear infinite;will-change:transform}
         .pill{border:1px solid var(--line);border-radius:999px;padding:.35rem .7rem;background:#0c1019;color:#c8d0e3}
         @keyframes defilement{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        /* Sections */
         section{padding:3.2rem 0}
         .hero{padding:2.2rem 0 3.2rem}
         .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem}
@@ -100,7 +85,6 @@
         .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
         .reveal.in{opacity:1;transform:none}
 
-        /* Flash message */
         .flash{margin-top:.6rem;padding:.65rem .8rem;border-radius:10px;border:1px solid var(--line);background:#0c1019}
         .flash.ok{border-color:#2f8f46;background:rgba(47,143,70,.12);color:#cfead6}
         .flash.err{border-color:#a23b3b;background:rgba(234,68,68,.12);color:#ffd6d6}
@@ -113,9 +97,9 @@
     </style>
 </head>
 <body>
-<div class="fx"></div><div class="gridfx"></div>
+<div class="fx"></div>
+<div class="gridfx"></div>
 
-<!-- NAV centrée -->
 <header>
     <div class="wrap nav">
         <nav class="links">
@@ -127,7 +111,6 @@
     </div>
 </header>
 
-<!-- MARQUEE juste en dessous de la nav -->
 <div class="marquee-wrap">
     <div class="wrap">
         <div class="marquee">
@@ -141,7 +124,6 @@
 </div>
 
 <main class="wrap">
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-grid card" style="position:relative;overflow:hidden">
             <svg class="blob" viewBox="0 0 600 600" aria-hidden="true">
@@ -161,49 +143,46 @@
                 </div>
             </div>
 
-            <!-- Terminal -->
             <div class="reveal">
                 <div class="terminal card" style="padding:0">
                     <div class="term-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="term-title">reda@portfolio — bash</span></div>
                     <div class="term-body"><pre id="term"></pre></div>
                 </div>
-                <small class="muted">Terminal démo — commandes Symfony/Composer/Git</small>
+                <small class="muted"></small>
             </div>
         </div>
     </section>
 
-    <!-- PROJETS -->
     <section id="projets">
         <div class="sectitle"><span class="dot badge-dot"></span><h2>Projets réalisés</h2></div>
         <div class="grid">
             <article class="project card reveal">
                 <div class="thumb">Nuit de l'Info 2024</div>
                 <h3>Challenge national</h3>
-                <p class="muted">Participation à la Nuit de l’Info 2024 — création d’une application web en équipe avec PHP et SQL autour d’un thème imposé.</p>
+                <p class="muted">Application web en équipe avec PHP et SQL autour d’un thème imposé.</p>
                 <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Collab</span></div>
             </article>
             <article class="project card reveal">
                 <div class="thumb">Gestion Bibliothèque</div>
                 <h3>CRUD & Authentification</h3>
-                <p class="muted">Application de gestion (emprunts, retours, lecteurs) avec login sécurisé et base de données MySQL.</p>
+                <p class="muted">Gestion des emprunts/retours avec base MySQL.</p>
                 <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
             </article>
             <article class="project card reveal">
                 <div class="thumb">Cantine & Alternance</div>
                 <h3>Symfony / Doctrine</h3>
-                <p class="muted">Plateforme de gestion des repas et alternances avec triggers SQL et DataTables interactives.</p>
+                <p class="muted">Gestion repas et alternances avec triggers SQL et DataTables.</p>
                 <div class="tags"><span class="tag">Symfony</span><span class="tag">Twig</span><span class="tag">Doctrine</span></div>
             </article>
             <article class="project card reveal">
                 <div class="thumb">Dashboard & API</div>
                 <h3>Monitoring dynamique</h3>
-                <p class="muted">Visualisation des données API avec graphiques et effets d’apparition.</p>
+                <p class="muted">Graphiques temps réel et effets d’apparition.</p>
                 <div class="tags"><span class="tag">JS</span><span class="tag">REST</span></div>
             </article>
         </div>
     </section>
 
-    <!-- FORMATIONS -->
     <section id="formations">
         <div class="sectitle"><span class="dot badge-dot"></span><h2>Formations</h2></div>
         <div class="timeline reveal">
@@ -213,7 +192,6 @@
         </div>
     </section>
 
-    <!-- COMPÉTENCES -->
     <section id="skills">
         <div class="sectitle"><span class="dot badge-dot"></span><h2>Compétences</h2></div>
         <div class="skills reveal">
@@ -225,22 +203,31 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
         <div class="sectitle"><span class="dot badge-dot"></span><h2>Contact</h2></div>
         <div class="contact">
-
-            <form class="card" id="contactForm" action="contact.php" method="POST">
+            <!-- ======= FORM FORMSPREE ======= -->
+            <form class="card" id="contactForm" action="https://formspree.io/f/xwprabeb" method="POST">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
-                    <div><label class="muted">Nom</label><input name="name" placeholder="Ton nom" required></div>
-                    <div><label class="muted">Email</label><input name="email" type="email" placeholder="email@exemple.com" required></div>
+                    <div>
+                        <label class="muted">Nom</label>
+                        <input name="name" placeholder="Ton nom" required>
+                    </div>
+                    <div>
+                        <label class="muted">Email</label>
+                        <input name="email" type="email" placeholder="email@exemple.com" required>
+                    </div>
                 </div>
-                <div style="margin-top:.6rem"><label class="muted">Message</label>
+
+                <div style="margin-top:.6rem">
+                    <label class="muted">Message</label>
                     <textarea name="message" placeholder="Parlons de ton projet…" required></textarea>
                 </div>
-                <input type="text" name="website" style="display:none">
+
+                <!-- Honeypot anti-bot -->
+                <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
+
                 <button class="cta btn" id="sendBtn" style="margin-top:.8rem">Envoyer</button>
-                <small class="muted" id="contactNote">(Envoi sécurisé via PHPMailer)</small>
                 <div id="flash" class="flash hidden" role="status" aria-live="polite"></div>
             </form>
 
@@ -262,25 +249,23 @@
 
 <footer>© <span id="year"></span> Reda Lakhledj — BTS SIO SLAM. Thème sombre animé.</footer>
 
-<!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-    // GSAP reveal
     gsap.registerPlugin(ScrollTrigger);
     document.querySelectorAll('.reveal').forEach(el=>{
         ScrollTrigger.create({trigger:el,start:"top 85%",onEnter:()=>el.classList.add('in')});
     });
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Blob morph
     const blob=document.getElementById('blobPath');
-    const shapes=[ "M424.3,311.1Q431.6,372.1,382.1,406Q332.6,439.9,271.7,461.8Q210.7,483.6,179.6,430.3Q148.6,377,120.6,326.5Q92.6,276,106.5,213.3Q120.3,150.6,170.4,113.4Q220.6,76.3,280,83.2Q339.4,90.1,375.1,132.8Q410.7,175.4,418.2,237.7Q425.8,300.1,424.3,311.1Z",
+    const shapes=[
+        "M424.3,311.1Q431.6,372.1,382.1,406Q332.6,439.9,271.7,461.8Q210.7,483.6,179.6,430.3Q148.6,377,120.6,326.5Q92.6,276,106.5,213.3Q120.3,150.6,170.4,113.4Q220.6,76.3,280,83.2Q339.4,90.1,375.1,132.8Q410.7,175.4,418.2,237.7Q425.8,300.1,424.3,311.1Z",
         "M454.4,320.8Q424.6,381.6,375.8,430.1Q327,478.6,264.9,468.4Q202.9,458.1,149.6,420.9Q96.3,383.8,99.6,317.1Q103,250.3,111.8,188.6Q120.7,126.8,173.5,93.7Q226.3,60.6,290.4,70.4Q354.6,80.3,402.5,123.6Q450.4,167,467.7,228.5Q485.1,290.1,454.4,320.8Z",
-        "M430.8,307.6Q435.3,365.2,392.8,408.9Q350.2,452.7,291,466.4Q231.8,480.2,187,438.1Q142.1,396,119.8,341.8Q97.5,287.7,104.6,217.7Q111.7,147.6,164.3,108.9Q216.8,70.3,285.5,61.7Q354.2,53.2,390.5,109.4Q426.9,165.5,429.9,227.8Q433,290.2,430.8,307.6Z"];
+        "M430.8,307.6Q435.3,365.2,392.8,408.9Q350.2,452.7,291,466.4Q231.8,480.2,187,438.1Q142.1,396,119.8,341.8Q97.5,287.7,104.6,217.7Q111.7,147.6,164.3,108.9Q216.8,70.3,285.5,61.7Q354.2,53.2,390.5,109.4Q426.9,165.5,429.9,227.8Q433,290.2,430.8,307.6Z"
+    ];
     let idx=0; setInterval(()=>{idx=(idx+1)%shapes.length;blob.setAttribute('d',shapes[idx]);},2600);
 
-    // Terminal typing
     const lines=[
         'reda@host % git clone https://github.com/reda-lakhledj/portfolio.git',
         "Cloning into 'portfolio'...", 'done.',
@@ -300,24 +285,22 @@
         else{term.textContent=(term.textContent.replace(/\u2588?$/,''))+'\n';li++;ci=0;setTimeout(typeNext,180);}
     } typeNext();
 
-    // Marquee continue : duplique une fois pour un défilement sans coupure
     const track = document.querySelector('.marquee .track');
     if (track && !track.dataset.duplique) {
         track.innerHTML += track.innerHTML;
         track.dataset.duplique = '1';
     }
 
-    // ---- FORM + FLASH ----
-    const form = document.getElementById('contactForm');
-    const btn  = document.getElementById('sendBtn');
-    const note = document.getElementById('contactNote');
-    const flash= document.getElementById('flash');
+    // ======= ENVOI FORMSPREE (AJAX) =======
+    const form  = document.getElementById('contactForm');
+    const btn   = document.getElementById('sendBtn');
+    const flash = document.getElementById('flash');
 
     function showFlash(msg, ok=true){
         flash.textContent = msg;
         flash.classList.remove('hidden','ok','err');
         flash.classList.add(ok ? 'ok' : 'err');
-        if(ok) setTimeout(()=>flash.classList.add('hidden'), 6000);
+        if (ok) setTimeout(()=>flash.classList.add('hidden'), 6000);
     }
 
     form.addEventListener('submit', async (e) => {
@@ -325,29 +308,27 @@
         flash.classList.add('hidden');
         btn.disabled = true;
         btn.textContent = 'Envoi…';
-        note.textContent = '(Envoi en cours)';
+
         try {
-            const res  = await fetch('contact.php', {
+            const res = await fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
-                headers: { 'X-Requested-With': 'fetch' }
+                headers: { 'Accept': 'application/json' }
             });
-            const data = await res.json().catch(()=>({ok:false,error:'Réponse invalide'}));
 
-            if (res.ok && data.ok) {
-                btn.textContent = 'Envoyé ✓';
-                note.textContent = 'Merci !';
-                showFlash('Message envoyé avec succès. ', true);
+            if (res.ok) {
+                showFlash('Message envoyé avec succès. Merci !', true);
                 form.reset();
+                btn.textContent = 'Envoyé ✓';
             } else {
+                const data = await res.json().catch(()=>({}));
+                const err  = (data && data.errors && data.errors[0] && data.errors[0].message) || 'Erreur. Vérifie les champs et réessaie.';
+                showFlash(err, false);
                 btn.textContent = 'Réessayer';
-                note.textContent = 'Erreur…';
-                showFlash(data.error || 'Erreur inconnue. Vérifie les champs puis réessaie.', false);
             }
-        } catch (err) {
+        } catch {
+            showFlash('Réseau indisponible. Réessaie plus tard.', false);
             btn.textContent = 'Réessayer';
-            note.textContent = 'Réseau indisponible.';
-            showFlash('Impossible de contacter le serveur (réseau).', false);
         } finally {
             setTimeout(()=>{ btn.disabled = false; btn.textContent = 'Envoyer'; }, 1800);
         }
