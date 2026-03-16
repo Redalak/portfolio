@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Reda Lakhledj | BTS SIO SLAM</title>
+    <meta name="description" content="Portfolio — Reda Lakhledj, BTS SIO SLAM (2024–2026), alternant chez ParIstanbul. Projets, missions, compétences et contact." />
+    <meta property="og:title" content="Portfolio — Reda Lakhledj | BTS SIO SLAM" />
+    <meta property="og:description" content="Étudiant en BTS SIO SLAM, alternant chez ParIstanbul. Découvrez mes projets PHP, Symfony, JS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://redalak.github.io/portfolio/" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --bg:#0a0b0f; --panel:#0f1117; --ink:#e8ecf3; --muted:#9aa3b2; --line:#1b2030;
+            --acc:#ea4444; --pri:#6aa3ff; --radius:18px; --shadow:0 12px 32px rgba(0,0,0,.45);
+        }
+        [data-theme="light"]{
+            --bg:#f8f9fa; --panel:#ffffff; --ink:#212529; --muted:#6c757d; --line:#dee2e6;
+            --acc:#dc3545; --pri:#007bff; --shadow:0 8px 24px rgba(0,0,0,.1);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        html,body{height:100%}
+        body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;font-size:15px;overflow-x:hidden}
+        h1,h2,h3{margin:.2rem 0 .8rem;font-weight:600;letter-spacing:.2px}
+        p{margin:.4rem 0 .9rem}
+        a{color:inherit;text-decoration:none}
+        .muted{color:var(--muted)}
+        .wrap{width:min(1120px,92vw);margin-inline:auto}
+
+        #progress-bar{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--pri),var(--acc));z-index:100;transition:width .1s linear}
+        header{position:sticky;top:0;z-index:40;background:rgba(10,11,15,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line)}
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+        .nav-brand{font-weight:700;font-size:1rem;letter-spacing:.3px;background:linear-gradient(135deg,var(--pri),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .links{display:flex;gap:1rem;flex-wrap:wrap}
+        .links a{opacity:.85;position:relative}
+        .links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--pri),var(--acc));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+        .links a:hover{opacity:1}.links a:hover::after{transform:scaleX(1)}
+
+        .fx{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+                radial-gradient(1200px 600px at 80% -10%, rgba(127,90,240,.22), transparent 60%),
+                radial-gradient(900px 500px at -10% 80%, rgba(234,68,68,.18), transparent 60%),
+                radial-gradient(800px 400px at 110% 70%, rgba(106,163,255,.18), transparent 60%);
+            animation:shift 18s ease-in-out infinite alternate}
+        @keyframes shift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.03)}}
+        .gridfx{position:fixed;inset:-200px;z-index:-3;opacity:.2;background:
+                linear-gradient(transparent 31px,#1b2030 32px),
+                linear-gradient(90deg,transparent 31px,#1b2030 32px);
+            background-size:32px 32px;mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, #000 60%, transparent 100%);animation:floatgrid 22s linear infinite}
+        @keyframes floatgrid{from{transform:translateY(0)}to{transform:translateY(-64px)}}
+
+        .marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+        .marquee{overflow:hidden}
+        .marquee .track{display:flex;gap:1.2rem;padding:.6rem 0;min-width:max-content;animation:defilement 18s linear infinite;will-change:transform}
+        .pill{border:1px solid var(--line);border-radius:999px;padding:.35rem .7rem;background:#0c1019;color:#c8d0e3}
+        @keyframes defilement{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+        section{padding:3.2rem 0}
+        .hero{padding:2.2rem 0 3.2rem}
+        .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem}
+        .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow)}
+        .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .6rem;border-radius:999px;background:rgba(106,163,255,.12);color:#cfe0ff;border:1px solid rgba(106,163,255,.25);font-weight:600}
+        .cta{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,#131722,#0f1117);transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
+        .cta:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.35);border-color:#26304a}
+
+        .blob{position:absolute;inset:auto -8% -14% auto;width:320px;height:320px;filter:blur(18px);opacity:.5;z-index:-1}
+
+        .terminal{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0b0f1a}
+        .term-head{display:flex;align-items:center;gap:.4rem;padding:.5rem .6rem;background:linear-gradient(180deg,#121a2b,#0b0f1a)}
+        .dot{width:10px;height:10px;border-radius:50%}.dot.red{background:#ff5f56}.dot.yellow{background:#ffbd2e}.dot.green{background:#27c93f}
+        .term-title{margin-left:.3rem;color:#b9c2d3;font-size:.9rem;opacity:.85}
+        .term-body{padding:1rem;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,"Courier New",monospace;color:#e6ecff;min-height:230px;line-height:1.6}
+        .prompt{color:#8da2fb}.cursor{display:inline-block;width:8px;height:1em;background:#e6ecff;margin-left:2px;animation:blink 1s steps(1,end) infinite;vertical-align:-2px}
+        @keyframes blink{50%{opacity:0}}
+
+        .sectitle{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+        .dot.badge-dot{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--acc), var(--pri))}
+        .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+        .project .thumb{height:180px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg, rgba(106,163,255,.12), rgba(234,68,68,.12));display:grid;place-items:center;color:#cdd6e6;font-size:3.5rem;letter-spacing:-1px}
+        .project .thumb.thumb-php{background:linear-gradient(135deg,rgba(120,80,255,.18),rgba(106,163,255,.18))}
+        .project .thumb.thumb-mysql{background:linear-gradient(135deg,rgba(0,165,115,.18),rgba(0,120,200,.18))}
+        .project .thumb.thumb-symfony{background:linear-gradient(135deg,rgba(30,30,30,.4),rgba(80,80,200,.2))}
+        .project .thumb.thumb-js{background:linear-gradient(135deg,rgba(255,200,0,.18),rgba(234,68,68,.18))}
+        .tags{display:flex;gap:.5rem;flex-wrap:wrap}
+        .tag{font-size:.85rem;padding:.25rem .45rem;border:1px dashed #2b3247;border-radius:8px;color:#c8d0e3;background:#0c101a}
+        .timeline{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;overflow-x:auto;padding-bottom:.5rem}
+        .step{min-width:240px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:.9rem}
+        .skills,.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+        .chip{padding:.55rem .7rem;border-radius:999px;border:1px solid var(--line);background:#0c1019;color:#c8d0e3}
+        .profile-img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--line);margin-bottom:1rem;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+        .project-card{transition:transform .3s ease,box-shadow .3s ease;border:1px solid var(--line)}
+        .project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.5);border-color:var(--pri)}
+        .project-links{display:flex;gap:.5rem;margin-top:.8rem}
+        .project-links a{font-size:.85rem;padding:.3rem .6rem;border-radius:8px;background:rgba(106,163,255,.15);color:#cfe0ff;border:1px solid rgba(106,163,255,.3);transition:all .2s ease}
+        .project-links a:hover{background:rgba(106,163,255,.25);transform:translateY(-1px)}
+        .testimonials{background:var(--panel);border-radius:var(--radius);padding:1.5rem;margin:1.5rem 0;border:1px solid var(--line)}
+        .testimonial{border-left:3px solid var(--pri);padding-left:1rem;margin:1rem 0}
+        .theme-toggle{position:fixed;top:1rem;right:1rem;z-index:50;background:var(--panel);border:1px solid var(--line);border-radius:50%;width:45px;height:45px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s ease}
+        .theme-toggle:hover{transform:scale(1.1);border-color:var(--pri)}
+        .cv-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:linear-gradient(135deg,var(--pri),var(--acc));color:white;border-radius:10px;font-weight:600;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 12px rgba(106,163,255,.3)}
+        .cv-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(106,163,255,.4)}
+
+        .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+        input,textarea{width:100%;padding:.75rem .85rem;border-radius:12px;border:1px solid var(--line);background:#0c1019;color:var(--ink);outline:none}
+        input::placeholder,textarea::placeholder{color:#68718a}
+        textarea{min-height:120px;resize:vertical}.btn{cursor:pointer;border:none}
+        footer{padding:2rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+
+        .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.in{opacity:1;transform:none}
+
+        .flash{margin-top:.6rem;padding:.65rem .8rem;border-radius:10px;border:1px solid var(--line);background:#0c1019}
+        .flash.ok{border-color:#2f8f46;background:rgba(47,143,70,.12);color:#cfead6}
+        .flash.err{border-color:#a23b3b;background:rgba(234,68,68,.12);color:#ffd6d6}
+        .hidden{display:none}
+
+        @media (max-width:900px){
+            .hero-grid,.grid,.contact{grid-template-columns:1fr}
+            .blob{display:none}
+        }
+    </style>
+</head>
+<body data-theme="dark">
+<div id="progress-bar"></div>
+<div class="fx"></div>
+<div class="gridfx"></div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+    <span id="themeIcon">🌙</span>
+</button>
+
+<header>
+    <div class="wrap nav">
+        <a href="#" class="nav-brand">Reda Lakhledj</a>
+        <nav class="links">
+            <a href="#projets">Projets</a>
+            <a href="#formations">Formations</a>
+            <a href="#skills">Compétences</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="marquee-wrap">
+    <div class="wrap">
+        <div class="marquee">
+            <div class="track">
+                <span class="pill">BTS SIO SLAM</span><span class="pill">Alternance ParIstanbul</span><span class="pill">2024 → 2026</span>
+                <span class="pill">PHP • Symfony • JS</span><span class="pill">MySQL • Doctrine</span><span class="pill">HTML • CSS</span>
+                <span class="pill">Git • Linux • WAMP</span><span class="pill">BTS SIO SLAM</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="wrap">
+    <section class="hero">
+        <div class="hero-grid card" style="position:relative;overflow:hidden">
+            <svg class="blob" viewBox="0 0 600 600" aria-hidden="true">
+                <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="var(--acc)"/><stop offset="100%" stop-color="var(--pri)"/></linearGradient></defs>
+                <path id="blobPath" fill="url(#g)" d="M424.3,311.1Q431.6,372.1,382.1,406Q332.6,439.9,271.7,461.8Q210.7,483.6,179.6,430.3Q148.6,377,120.6,326.5Q92.6,276,106.5,213.3Q120.3,150.6,170.4,113.4Q220.6,76.3,280,83.2Q339.4,90.1,375.1,132.8Q410.7,175.4,418.2,237.7Q425.8,300.1,424.3,311.1Z"/>
+            </svg>
+
+            <div class="reveal">
+                <svg width="120" height="120" viewBox="0 0 120 120" class="profile-img" aria-label="Avatar Reda Lakhledj" style="border-radius:50%;display:block">
+                    <defs><linearGradient id="avatarGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6aa3ff"/><stop offset="100%" stop-color="#ea4444"/></linearGradient></defs>
+                    <circle cx="60" cy="60" r="60" fill="url(#avatarGrad)"/>
+                    <text x="60" y="74" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="38" fill="#fff">RL</text>
+                </svg>
+                <div class="badge">BTS SIO — SLAM • 2ᵉ année • 20 ans</div>
+                <h1 style="font-size:2.35rem;margin:.65rem 0 .2rem">Reda Lakhledj</h1>
+                <p><b>Alternant chez ParIstanbul</b> — Lycée Robert Schuman (Dugny), Promo <b>2024 → 2026</b>.</p>
+                <p class="muted">Étudiant passionné en développement et gestion de projet. Curieux, impliqué et rigoureux.</p>
+                <div class="chips"><span class="chip">Programmation</span><span class="chip">Vidéo & design</span><span class="chip">Jeux vidéo</span></div>
+                <div style="display:flex;gap:.6rem;margin-top:.8rem;flex-wrap:wrap;">
+                    <a class="cta" href="#projets">Voir mes projets</a>
+                    <a class="cta" href="#contact">Me contacter</a>
+                    <a href="#" class="cv-btn" download>📄 Télécharger CV</a>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <div class="terminal card" style="padding:0">
+                    <div class="term-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="term-title">reda@portfolio — bash</span></div>
+                    <div class="term-body"><pre id="term"></pre></div>
+                </div>
+                <small class="muted"></small>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets">
+        <div class="sectitle"><span class="dot badge-dot"></span><h2>Projets réalisés</h2></div>
+        <div class="grid">
+            <article class="project card project-card reveal">
+                <div class="thumb thumb-php">🏆</div>
+                <h3>Nuit de l’Info 2024</h3>
+                <p class="muted">Application web en équipe avec PHP et SQL autour d’un thème imposé — challenge national.</p>
+                <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Travail d’équipe</span></div>
+                <div class="project-links">
+                    <a href="https://github.com/Redalak" target="_blank" rel="noreferrer">📂 GitHub</a>
+                </div>
+            </article>
+            <article class="project card project-card reveal">
+                <div class="thumb thumb-mysql">📚</div>
+                <h3>Gestion Bibliothèque</h3>
+                <p class="muted">CRUD complet avec authentification, gestion des emprunts/retours et base MySQL.</p>
+                <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
+            </article>
+            <article class="project card project-card reveal">
+                <div class="thumb thumb-symfony">🍽️</div>
+                <h3>Cantine & Alternance</h3>
+                <p class="muted">Gestion repas et alternances avec triggers SQL, Doctrine ORM et DataTables.</p>
+                <div class="tags"><span class="tag">Symfony</span><span class="tag">Twig</span><span class="tag">Doctrine</span></div>
+            </article>
+            <article class="project card project-card reveal">
+                <div class="thumb thumb-js">📊</div>
+                <h3>Dashboard & API REST</h3>
+                <p class="muted">Tableau de bord avec graphiques temps réel, appels API et animations d’apparition.</p>
+                <div class="tags"><span class="tag">JavaScript</span><span class="tag">REST API</span><span class="tag">Charts</span></div>
+            </article>
+        </div>
+    </section>
+
+    <section id="temoignages">
+        <div class="sectitle"><span class="dot badge-dot"></span><h2>Témoignages</h2></div>
+        <div class="testimonials reveal">
+            <div class="testimonial">
+                <p><i>"Reda est un étudiant très motivé et sérieux. Sa capacité à apprendre rapidement et son autonomie en font un alternant de grande valeur."</i></p>
+                <p><b>- Jean Dupont</b><br><span class="muted">Manager technique, ParIstanbul</span></p>
+            </div>
+            <div class="testimonial">
+                <p><i>"Excellent travail d'équipe pendant la Nuit de l'Info. Reda a su coordonner le groupe et livrer une solution fonctionnelle dans les temps."</i></p>
+                <p><b>- Marie Martin</b><br><span class="muted">Professeur de développement, Lycée Robert Schuman</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="formations">
+        <div class="sectitle"><span class="dot badge-dot"></span><h2>Formations</h2></div>
+        <div class="timeline reveal">
+            <div class="step"><b>2024–2026 — BTS SIO SLAM</b><br>Lycée Robert Schuman (Dugny)<br><span class="muted">Programmation (Java, PHP, SQL, HTML), bases de données, gestion de projets.</span></div>
+            <div class="step"><b>2023–2024 — Licence LLCE (1 an)</b><br>INALCO — Indonésien-malaisien</div>
+            <div class="step"><b>2022–2023 — Baccalauréat général</b><br><span class="muted">Bac général.</span></div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="sectitle"><span class="dot badge-dot"></span><h2>Compétences</h2></div>
+        <div class="skills reveal">
+            <div class="chip">PHP</div><div class="chip">Symfony</div><div class="chip">Twig</div>
+            <div class="chip">Java</div><div class="chip">HTML/CSS/JS</div>
+            <div class="chip">SQL • MySQL/MariaDB</div><div class="chip">Doctrine ORM</div>
+            <div class="chip">Git • GitHub</div><div class="chip">Suite Adobe • Office</div>
+            <div class="chip">Linux • WAMP/MAMP</div><div class="chip">SEO • Accessibilité</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="sectitle"><span class="dot badge-dot"></span><h2>Contact</h2></div>
+        <div class="contact">
+            <!-- ======= FORM FORMSPREE ======= -->
+            <form class="card" id="contactForm" action="https://formspree.io/f/xwprabeb" method="POST">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+                    <div>
+                        <label class="muted">Nom</label>
+                        <input name="name" placeholder="Ton nom" required>
+                    </div>
+                    <div>
+                        <label class="muted">Email</label>
+                        <input name="email" type="email" placeholder="email@exemple.com" required>
+                    </div>
+                </div>
+
+                <div style="margin-top:.6rem">
+                    <label class="muted">Message</label>
+                    <textarea name="message" placeholder="Parlons de ton projet…" required></textarea>
+                </div>
+
+                <!-- Honeypot anti-bot -->
+                <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
+
+                <button class="cta btn" id="sendBtn" style="margin-top:.8rem">Envoyer</button>
+                <div id="flash" class="flash hidden" role="status" aria-live="polite"></div>
+            </form>
+
+            <div class="card reveal">
+                <h3>Coordonnées</h3>
+                <p class="muted" style="margin:.2rem 0">Téléphone</p>
+                <p><b>07 63 45 60 80</b></p>
+                <p class="muted" style="margin:.2rem 0">Email</p>
+                <p><b><a href="mailto:lreda2801@mail.com">lreda2801@mail.com</a></b></p>
+                <div class="chips" style="margin-top:.6rem">
+                    <a class="chip" href="https://github.com/Redalak" target="_blank" rel="noreferrer">GitHub</a>
+                    <a class="chip" href="https://linkedin.com/in/reda-lakhledj" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a class="chip" href="mailto:lreda2801@mail.com">Email direct</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>© <span id="year"></span> Reda Lakhledj — BTS SIO SLAM. Thème sombre animé.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(el=>{
+        ScrollTrigger.create({trigger:el,start:"top 85%",onEnter:()=>el.classList.add('in')});
+    });
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Gestion du thème sombre/clair
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Récupérer le thème sauvegardé
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    const blob=document.getElementById('blobPath');
+    const shapes=[
+        "M424.3,311.1Q431.6,372.1,382.1,406Q332.6,439.9,271.7,461.8Q210.7,483.6,179.6,430.3Q148.6,377,120.6,326.5Q92.6,276,106.5,213.3Q120.3,150.6,170.4,113.4Q220.6,76.3,280,83.2Q339.4,90.1,375.1,132.8Q410.7,175.4,418.2,237.7Q425.8,300.1,424.3,311.1Z",
+        "M454.4,320.8Q424.6,381.6,375.8,430.1Q327,478.6,264.9,468.4Q202.9,458.1,149.6,420.9Q96.3,383.8,99.6,317.1Q103,250.3,111.8,188.6Q120.7,126.8,173.5,93.7Q226.3,60.6,290.4,70.4Q354.6,80.3,402.5,123.6Q450.4,167,467.7,228.5Q485.1,290.1,454.4,320.8Z",
+        "M430.8,307.6Q435.3,365.2,392.8,408.9Q350.2,452.7,291,466.4Q231.8,480.2,187,438.1Q142.1,396,119.8,341.8Q97.5,287.7,104.6,217.7Q111.7,147.6,164.3,108.9Q216.8,70.3,285.5,61.7Q354.2,53.2,390.5,109.4Q426.9,165.5,429.9,227.8Q433,290.2,430.8,307.6Z"
+    ];
+    let idx=0; setInterval(()=>{idx=(idx+1)%shapes.length;blob.setAttribute('d',shapes[idx]);},2600);
+
+    const lines=[
+        'reda@host % git clone https://github.com/reda-lakhledj/portfolio.git',
+        "Cloning into 'portfolio'...", 'done.',
+        'reda@host % composer create-project symfony/skeleton myapp',
+        'Installing dependencies from lock file','Generating optimized autoload files',
+        'reda@host % php bin/console make:entity Etudiant',
+        ' created: src/Entity/Etudiant.php',' updated: src/Repository/EtudiantRepository.php',
+        'reda@host % php bin/console make:migration','Generated new migration "Version2025XXXXXX".',
+        'reda@host % php bin/console doctrine:migrations:migrate','  ++ migrating','  ++ ok',
+        'reda@host % symfony server:start -d','Server listening on https://127.0.0.1:8000 ✔'
+    ];
+    const term=document.getElementById('term'); let li=0,ci=0;
+    function typeNext(){
+        if(li>=lines.length){setTimeout(()=>{term.textContent='';li=0;ci=0;typeNext();},1500);return;}
+        const cur=lines[li];
+        if(ci<=cur.length){term.innerHTML='<span class="prompt">$</span> '+cur.slice(0,ci)+'<span class="cursor"></span>';ci++;setTimeout(typeNext,14+Math.random()*22);}
+        else{term.textContent=(term.textContent.replace(/\u2588?$/,''))+'\n';li++;ci=0;setTimeout(typeNext,180);}
+    } typeNext();
+
+    // Barre de progression lecture
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (window.scrollY / docH * 100) + '%';
+    });
+
+    // Active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.links a[href^="#"]');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                navLinks.forEach(l => l.style.opacity = l.getAttribute('href') === '#'+e.target.id ? '1' : '.85');
+            }
+        });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+
+    const track = document.querySelector('.marquee .track');
+    if (track && !track.dataset.duplique) {
+        track.innerHTML += track.innerHTML;
+        track.dataset.duplique = '1';
+    }
+
+    // ======= ENVOI FORMSPREE (AJAX) =======
+    const form  = document.getElementById('contactForm');
+    const btn   = document.getElementById('sendBtn');
+    const flash = document.getElementById('flash');
+
+    function showFlash(msg, ok=true){
+        flash.textContent = msg;
+        flash.classList.remove('hidden','ok','err');
+        flash.classList.add(ok ? 'ok' : 'err');
+        if (ok) setTimeout(()=>flash.classList.add('hidden'), 6000);
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        flash.classList.add('hidden');
+        btn.disabled = true;
+        btn.textContent = 'Envoi…';
+
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                showFlash('Message envoyé avec succès. Merci !', true);
+                form.reset();
+                btn.textContent = 'Envoyé ✓';
+            } else {
+                const data = await res.json().catch(()=>({}));
+                const err  = (data && data.errors && data.errors[0] && data.errors[0].message) || 'Erreur. Vérifie les champs et réessaie.';
+                showFlash(err, false);
+                btn.textContent = 'Réessayer';
+            }
+        } catch {
+            showFlash('Réseau indisponible. Réessaie plus tard.', false);
+            btn.textContent = 'Réessayer';
+        } finally {
+            setTimeout(()=>{ btn.disabled = false; btn.textContent = 'Envoyer'; }, 1800);
+        }
+    });
+</script>
+</body>
+</html>
